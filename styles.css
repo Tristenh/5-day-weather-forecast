@@ -1,6 +1,7 @@
 
 body{
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-size: 20px;
 }
 nav {
     background: rgb(70,90,184);
@@ -9,8 +10,10 @@ color: #fff;
 display: flex;
 align-items: center;
 justify-content: center;
+
 font-size: 2rem;
 height: 6rem;
+padding: 1rem;
 }
 form{
     display: flex;
@@ -36,16 +39,48 @@ form{
     margin-top: 1rem;
     border-bottom: .1rem solid gray;
 }
-.grid-1x2{
-    margin-top: 1rem;
-    display: grid;
-    grid-template:repeat(1, 1fr)/repeat(1,20rem)repeat(1, 60%)
-}
-.column-2{
-    margin-left: 2rem;
-}
+
+
 .city-info{
     border: 1px solid #222;
     padding-left: 1rem;
+    margin-top: 1rem;
+}
+.forcast{
+    display: flex;
+    flex-direction: column;
+    margin-left: -1rem;   
+  
+}
+.day-forcast{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #323D4F;
+    width: 90%;
+   padding: 1rem;
+    line-height: 5px;
+    height: 14rem;
+    color: #fff;
+}
+@media screen and (min-width: 768px){
+    .grid-1x2{
+        margin-top: 1rem;
+        display: grid;
+        grid-template:repeat(1, 1fr)/repeat(1,20rem)repeat(1, 1fr)
+    }
+    .column-2{
+        margin-left: 1rem;
+    }
+    .forcast{
+        flex-direction: row;
+        grid-column: 1;
+    }
 
+}
+@media screen and (min-width: 1080px){
+    .forcast{
+        grid-column: 2;
+    }
 }
