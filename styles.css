@@ -46,6 +46,11 @@ form{
     padding-left: 1rem;
     margin-top: 1rem;
 }
+img{
+    margin-bottom:-2rem;
+    margin-top: -2rem;
+
+}
 .forcast{
     display: flex;
     flex-direction: column;

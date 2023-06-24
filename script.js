@@ -3,7 +3,6 @@ const input = document.querySelector(".input");
 const cityInfo = document.querySelector(".city-info");
 
 var APIKey = "a5a686e64400da39c5b4faa4a396c1b4";
-
 form.addEventListener("submit", function (event) {
   var city = input.value;
   event.preventDefault();
@@ -15,7 +14,8 @@ function getApi(city) {
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     "&appid=" +
-    APIKey;
+    APIKey +
+    "&units=metric";
 
   fetch(queryURL)
     .then(function (response) {
@@ -23,8 +23,14 @@ function getApi(city) {
     })
     .then(function (data) {
       let getDate = new Date();
+
       cityInfo.innerHTML = ` 
-      <h2>${data.name} (${getDate.toLocaleDateString(1 / 12 / 2023)})</h2>
+      <h2>${data.name} (${getDate.toLocaleDateString(
+        1 / 12 / 2023
+      )})<img src= "https://openweathermap.org/img/wn/${
+        data.weather[0].icon
+      }@2x.png?"/>
+      </h2>
      <p>Temp: ${data.main.temp}</p>
      <p>Wind: ${data.wind.speed}km/h</p>
      <p>Humidity: ${data.main.humidity}%</p>`;
@@ -33,3 +39,4 @@ function getApi(city) {
       console.log(data);
     });
 }
+// ${data.weather.icon}
