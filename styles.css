@@ -51,13 +51,13 @@ img{
     margin-top: -2rem;
 
 }
-.forcast{
+.forecast{
     display: flex;
     flex-direction: column;
     margin-left: -1rem;   
   
 }
-.day-forcast{
+.day-forecast{
     margin-top: 1rem;
     margin-left: 1rem;
     display: flex;
@@ -78,14 +78,14 @@ img{
     .column-2{
         margin-left: 1rem;
     }
-    .forcast{
+    .forecast{
         flex-direction: row;
         grid-column: 1;
     }
 
 }
 @media screen and (min-width: 1080px){
-    .forcast{
+    .forecast{
         grid-column: 2;
     }
 }
