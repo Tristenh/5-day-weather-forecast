@@ -34,15 +34,19 @@ function getApi(city) {
         let futureDay = data.list[i * 8];
         if (i >= 0) {
           cityInfo.innerHTML = ` 
-          <h2>${data.city.name} (${currentDay})<img src= "https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png?"/>
+          <h2>${data.city.name} (${currentDay})<img  src= "https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png?"/>
           </h2>
           <p>Temp: ${data.list[0].main.temp} °C</p>
           <p>Wind: ${data.list[0].wind.speed} km/h</p>
           <p>Humidity: ${data.list[0].main.humidity} %</p>`;
 
           forecast.innerHTML = `
-          <h2>(${futureDay.dt_txt.split(" ")[0]})<img src= "https://openweathermap.org/img/wn/${futureDay.weather[0].icon}@2x.png?"/>
-          </h2>
+          <h2>(${futureDay.dt_txt.split(" ")[0]})</h2>
+
+           <img class="icon" src= "https://openweathermap.org/img/wn/${
+             futureDay.weather[0].icon
+           }@2x.png?"> 
+          
           <p>Temp: ${futureDay.main.temp} °C</p>
           <p>Wind: ${futureDay.wind.speed} km/h</p>
           <p>Humidity: ${futureDay.main.humidity} %</p>`;
