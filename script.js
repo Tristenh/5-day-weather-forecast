@@ -41,7 +41,7 @@ function getApi(city) {
           <p>Humidity: ${data.list[0].main.humidity} %</p>`;
 
           forecast.innerHTML = `
-          <h2>(${futureDay.dt_txt})<img src= "https://openweathermap.org/img/wn/${futureDay.weather[0].icon}@2x.png?"/>
+          <h2>(${futureDay.dt_txt.split(" ")[0]})<img src= "https://openweathermap.org/img/wn/${futureDay.weather[0].icon}@2x.png?"/>
           </h2>
           <p>Temp: ${futureDay.main.temp} °C</p>
           <p>Wind: ${futureDay.wind.speed} km/h</p>
