@@ -62,7 +62,6 @@ img{
 }
 .day-forecast{
     margin-top: 1rem;
-    margin-left: 1rem;
     display: flex;
     flex-direction: column;
     background-color: #323D4F;
