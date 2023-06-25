@@ -65,7 +65,6 @@ function getApi(city) {
     })
     .then(function (data) {
       cityInfo.innerHTML = "";
-      console.log(data);
 
       // for loop dayForcast
       for (let i = 0; i < dayForecast.length; i++) {
@@ -85,7 +84,6 @@ function getApi(city) {
           const timeStamp = futureDay.dt;
           const date = new Date(timeStamp * 1000);
           const formatDate = date.toLocaleDateString("en-AU");
-          console.log(formatDate);
           // forecast.innerHTML
           forecast.innerHTML = `
           <h2>(${formatDate})</h2>
