@@ -3,7 +3,7 @@ const form = document.querySelector(".form");
 const input = document.querySelector(".input");
 const cityInfo = document.querySelector(".city-info");
 const dayForecast = document.querySelectorAll(".day-forecast");
-const saved = document.querySelectorAll(".saved");
+const saved = document.querySelectorAll(".border");
 
 // current date
 let getDate = new Date();
@@ -25,10 +25,18 @@ function JSONParse() {
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   var city = input.value;
-  inputArray.push(city);
-  displayResult();
-  saveResult();
-  getApi(city);
+  if(input.value === undefined){
+    inputArray.push(city);
+    displayResult();
+    saveResult();
+    getApi(city);
+  }
+  if(input.value){
+    inputArray.push(city);
+    displayResult();
+    saveResult();
+    getApi(city);
+  }
 });
 
 function displayResult() {
@@ -37,6 +45,7 @@ function displayResult() {
   for (let i = 0; i < savedCities.length; i++) {
     const displayInput = savedCities[i];
     let createEl = document.createElement("button");
+    input.value = ""
     createEl.classList.add("btn");
     createEl.innerHTML = displayInput;
     saved[0].appendChild(createEl);
