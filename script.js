@@ -3,6 +3,7 @@ const form = document.querySelector(".form");
 const input = document.querySelector(".input");
 const cityInfo = document.querySelector(".city-info");
 const dayForecast = document.querySelectorAll(".day-forecast");
+const saved = document.querySelectorAll(".saved");
 
 // current date
 let getDate = new Date();
@@ -11,12 +12,42 @@ const currentDay = getDate.toLocaleDateString("en-AU");
 // API key
 var APIKey = "a5a686e64400da39c5b4faa4a396c1b4";
 
+let inputArray = [];
+
+function JSONParse() {
+  let inputJSON = localStorage.getItem("city");
+  if (inputJSON) {
+    inputArray = JSON.parse(inputJSON);
+  }
+}
+
 // form submit
 form.addEventListener("submit", function (event) {
-  var city = input.value;
   event.preventDefault();
+  var city = input.value;
+  inputArray.push(city);
   getApi(city);
+  saveResult();
+  displayResult();
 });
+
+function displayResult() {
+  saved[0].innerHTML = "";
+  for (let i = 0; i < inputArray.length; i++) {
+    const displayInput = inputArray[i];
+    let createEl = document.createElement("button");
+    createEl.classList.add("btn");
+    createEl.innerHTML = displayInput;
+    saved[0].appendChild(createEl);
+    createEl.addEventListener("click", function () {
+      getApi(displayInput);
+    });
+  }
+}
+function saveResult() {
+  localStorage.setItem("city", JSON.stringify(inputArray));
+}
+
 
 // getApi
 function getApi(city) {
@@ -66,3 +97,5 @@ function getApi(city) {
       }
     });
 }
+JSONParse();
+displayResult();
