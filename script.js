@@ -26,15 +26,16 @@ form.addEventListener("submit", function (event) {
   event.preventDefault();
   var city = input.value;
   inputArray.push(city);
-  getApi(city);
-  saveResult();
   displayResult();
+  saveResult();
+  getApi(city);
 });
 
 function displayResult() {
   saved[0].innerHTML = "";
-  for (let i = 0; i < inputArray.length; i++) {
-    const displayInput = inputArray[i];
+  let savedCities = [...new Set(inputArray)];
+  for (let i = 0; i < savedCities.length; i++) {
+    const displayInput = savedCities[i];
     let createEl = document.createElement("button");
     createEl.classList.add("btn");
     createEl.innerHTML = displayInput;
@@ -47,7 +48,6 @@ function displayResult() {
 function saveResult() {
   localStorage.setItem("city", JSON.stringify(inputArray));
 }
-
 
 // getApi
 function getApi(city) {
